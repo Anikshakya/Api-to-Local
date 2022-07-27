@@ -1,10 +1,12 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:local_api/model/news_api_model.dart';
 import 'package:local_api/services/api_to_locale.dart';
 import 'package:local_api/services/news_api_service.dart';
 import 'package:local_api/tile/news_data_tile.dart';
+import 'package:local_api/views/downloads.dart';
 import 'package:local_api/views/locale_news_page.dart';
 import 'package:local_api/views/asset_downloads.dart';
 
@@ -66,12 +68,18 @@ class _HomePageState extends State<HomePage> {
                       builder: (context) => const LocaleNewsPage()));
                 },
               ),
-              ListTile(
-                leading: const Icon(Icons.newspaper),
-                title: const Text(
-                  'NewsPage from PathProvider',
-                  style: TextStyle(
-                    fontSize: 18,
+              GestureDetector(
+                onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Downloads(AppTheme.candy))),
+                child: ListTile(
+                  leading: const Icon(Icons.newspaper),
+                  title: const Text(
+                    'NewsPage from PathProvider',
+                    style: TextStyle(
+                      fontSize: 18,
+                    ),
                   ),
                 ),
               ),
